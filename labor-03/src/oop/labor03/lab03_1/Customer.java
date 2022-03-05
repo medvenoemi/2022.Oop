@@ -15,15 +15,15 @@ public class Customer {
     }
 
     public BankAccount getAccount(){
-        return this.account;
+        return account;
     }
 
     public String getFirstName(){
-        return this.firstName;
+        return firstName;
     }
 
     public String getLastName(){
-        return this.lastName;
+        return lastName;
     }
 
     public void setLastName(String lName){

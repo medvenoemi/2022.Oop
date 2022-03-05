@@ -1,7 +1,7 @@
 package oop.labor03.lab03_1;
 
 public class Main {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ////Declaration of the customers
         Customer customer1 = new Customer("John", "Black");
         Customer customer2 = new Customer("Mary", "White");
@@ -17,11 +17,14 @@ public class Main {
 
         //writing this
         System.out.println(customer1.toString());
+        //System.out.println(customer1);
         System.out.println(customer2.toString());
+        //System.out.println(customer2);
 
         //Adding a sum of money to account
         customer1.getAccount().deposit(1000);
         customer1.getAccount().deposit(1500);
+        customer2.getAccount().deposit(500);
 
 
         //Final print
@@ -34,7 +37,7 @@ public class Main {
         customer2.setAccount(customer2.getAccount());
         System.out.println("Jhons and Marys account " + customer1);
 
-        customer2.setLastName(customer2.getLastName());
+        customer2.setLastName(customer1.getLastName());
         System.out.println(customer2);
 
 

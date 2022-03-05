@@ -5,8 +5,8 @@ public class BankAccount {
     private double balance;
 
     public BankAccount(String accountNumber){
-        accountNumber = accountNumber;
-        balance = 0;
+        this.accountNumber = accountNumber;
+        this.balance = 0;
     }
 
     public double getBalance(){
@@ -18,17 +18,13 @@ public class BankAccount {
     }
 
     public void deposit(double amount) {
-        if(amount>0)
-        {
-            balance += amount;
-        }
+        this.balance = amount+this.balance;
 
     }
 
     public boolean withdraw(double amount){
-        if(amount <= balance){
-            balance-=amount;
-            return true;
+        if(balance-amount<0){
+            return false;
         }
         return false;
     }
