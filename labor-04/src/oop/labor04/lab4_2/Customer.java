@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Customer {
 
-    private String firstName;
+    private final String firstName;
     private String lastName;
     private ArrayList<BankAccount> accounts = new ArrayList<BankAccount>();
 
@@ -18,46 +18,51 @@ public class Customer {
         return accounts.size();
     }
 
-    public void addAccount(BankAccount BankAcc){
-        accounts.add(BankAcc);
+    public void addAccount(BankAccount account ){
+        this.accounts.add(account);
     }
 
 
     public BankAccount getAccount(String accountNumber){
-        
+       for (BankAccount i : accounts) {
+            if(i.getAccountNumber().equals(accountNumber)){
+                return i;
+            }
+        }
+        return null;
     }
 
     public String getFirstName(){
-        return firstName;
+
+        return this.firstName;
     }
 
     public String getLastName(){
-        return lastName;
+
+        return this.lastName;
     }
 
     public void setLastName(String lName){
+
         this.lastName = lName;
     }
 
     public void closeAccount(String accountNumber){
-        for(int i=0; i<getNumAccounts(); i++){
-            if((this.accounts[i].getAccountNumber()).equals(accountNumber)){
-                for(int j=i; j<getNumAccounts();j++){
-                    this.accounts[j]=this.accounts[j+1];
-                }
+        for(BankAccount i:accounts){
+            if(i.getAccountNumber().equals(accountNumber)){
+                this.accounts.remove(i);
+                return;
             }
-            numAccounts=numAccounts-1;
-            break;
         }
-
+        System.out.println("Account not found");
     }
 
     @Override
     public String toString() {
-        StringBuffer result = new StringBuffer();
-        result.append(firstName + ' ' + lastName + " accounts:\n");
-        for(int i=0; i<numAccounts; ++i){
-            result.append( "\t" + accounts[i].toString() +"\n");
+        StringBuilder result = new StringBuilder();
+        result.append(firstName).append(' ').append(lastName).append(" accounts:\n");
+        for(BankAccount i:accounts){
+            result.append("\tBankAccount(accountNumber = '").append(i.getAccountNumber()).append(" ', balance = ").append(i.getBalance()).append(")\n");
         }
         return result.toString();
     }

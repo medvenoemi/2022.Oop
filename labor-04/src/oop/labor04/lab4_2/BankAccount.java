@@ -1,7 +1,7 @@
 package oop.labor04.lab4_2;
 
 public class BankAccount {
-    private String accountNumber;
+    private final String accountNumber;
     private double balance;
 
     public BankAccount(String accountNumber){
@@ -10,29 +10,35 @@ public class BankAccount {
     }
 
     public double getBalance(){
-        return balance;
+        return this.balance;
     }
 
     public String getAccountNumber(){
-        return accountNumber;
+        return this.accountNumber;
     }
 
     public void deposit(double amount) {
-        this.balance = amount+this.balance;
+        if(amount>0){
+            balance+=amount;
+        }
 
     }
 
     public boolean withdraw(double amount){
-        if(balance-amount<0){
-            return false;
+        if(amount <= balance){
+            balance-=amount;
+            return true;
         }
         return false;
     }
 
     @Override
     public String toString() {
-        return "balance=" + balance +
-                ", accountNumber=" + accountNumber + '\'';
+        String Account = this.accountNumber;
+        Account+= " account number, your balance is: ";
+        Account+=this.balance;
+        Account+=" EUR.";
+        return Account;
     }
 
 
