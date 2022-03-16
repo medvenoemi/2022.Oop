@@ -10,11 +10,11 @@ import static java.lang.Math.abs;
 import static java.lang.Math.sqrt;
 
 public class MyArray {
-
+    //Variables
     private int length;
     private double[] elements = null;
 
-
+    //Constructors
     public MyArray(int length){
         this.length = length;
         elements = new double[length];
@@ -49,11 +49,13 @@ public class MyArray {
         String temp2 = inputArray.nextLine();
         String[] temp3 = temp2.split(" ");
         for(int i=0;i<length;i++){
+            //System.out.println(temp3[i]);
             this.elements[i] = Integer.parseInt(temp3[i]);
         }
 
     }
 
+    //Methods
     public void fillRandom(double a, double b){
         Random rand = new Random();
         for(int i=0;i<this.length;i++){
