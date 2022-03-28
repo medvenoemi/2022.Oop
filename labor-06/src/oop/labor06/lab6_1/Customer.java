@@ -34,6 +34,14 @@ public class Customer {
         return null;
     }
 
+    public ArrayList<String> getAccountNumbers(){
+        ArrayList<String> accountNumbers = new ArrayList<>();
+        for(BankAccount account:accounts){
+            accountNumbers.add(account.getAccountNumber());
+        }
+        return accountNumbers;
+    }
+
     public String getFirstName(){
 
         return this.firstName;
