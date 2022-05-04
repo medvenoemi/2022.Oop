@@ -80,6 +80,7 @@ public class Company {
 
     public void printManager(PrintStream ps){
         //getClass hasznalata
+
     }
 
 
