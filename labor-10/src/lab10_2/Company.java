@@ -65,6 +65,7 @@ public class Company {
 
     }
     public void fire(int id){
+        //Vigyazat, a contains EMployee-t keres. Nem adhatod csak az id-t. Hasonlokeppen a remove nem lesz jo id-val
         if(!employees.contains(id)){
             employees.remove(id);
         }
@@ -78,7 +79,7 @@ public class Company {
 
 
     public void printManager(PrintStream ps){
-
+        //getClass hasznalata
     }
 
 

@@ -33,6 +33,7 @@ public class Main {
         company.sortByComparator(new Comparator<Employee>() {
             @Override
             public int compare(Employee o1, Employee o2) {
+                //Itt hasznalhatod az alap compareTo metodust, ami az EMployee-ra vonatkozik.
                if( o1.getFirstName().equals(o2.getFirstName())){
                    return o1.getLastName().compareTo(o2.getLastName());
                }
@@ -48,6 +49,7 @@ public class Main {
             @Override
             public int compare(Employee o1, Employee o2) {
                 if(o1.getSalary() == o2.getSalary()){
+                    //Itt is hasonlokepp
                     if(o2.getFirstName().equals(o2.getFirstName())){
                         return o1.getLastName().compareTo(o2.getLastName());
                     }
@@ -69,6 +71,7 @@ public class Main {
                         return o1.getLastName().compareTo(o2.getLastName());
                     }
                 }
+                //Meg van az az eset,a mikor az egyik Manager, a masik Employee.
                 return o1.getFirstName().compareTo(o2.getFirstName());
             }
         });

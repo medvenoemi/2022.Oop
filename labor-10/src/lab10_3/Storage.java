@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Storage {
-    ArrayList<Product> products = new ArrayList<>();
-    private long starTime;
+    ArrayList<Product> products = new ArrayList<>(); //private!!
+    private long starTime; //nem kell adatagkent megadni oket
     private long endTime;
 
 
@@ -43,6 +43,7 @@ public class Storage {
                 int id = Integer.parseInt(items[0]);
                 int newAmount = Integer.parseInt(items[1]);
 
+                //Linearis kereses helyett jobb lett volna egy binaris.
                 for(int i=0;i< products.size();i++){
                     if(products.get(i).getIdentifier()==id){
                         Product aux = new Product(id,products.get(i).getName(),newAmount,products.get(i).getPrice());
