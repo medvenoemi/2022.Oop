@@ -2,7 +2,15 @@ package lab11_2;
 
 public class DateUtil {
     public static boolean leapYear(int year){
-        return (year%4 == 0 && year % 100 != 0)|| (year % 400 == 0);
+        if(year % 4 == 0 ){
+            if(year % 100 == 0){
+                return year % 400 == 0;
+            }
+            else{
+                return true;
+            }
+        }
+        return false;
     }
 
     public static boolean isValidDate(int year, int month, int day){

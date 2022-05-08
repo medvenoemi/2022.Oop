@@ -1,36 +1,78 @@
 package lab11_2;
 
-public class MyDate {
-    private int year;
-    private int month;
-    private int day;
-    public static Object toString;
+import static lab11_2.DateUtil.isValidDate;
 
-    public MyDate(int nyear, int nmonth, int nday){
-        year = nyear;
-        month = nmonth;
-        day = nday;
+public class MyDate implements Comparable<MyDate> {
+
+    private final int year;
+    private final boolean valid;
+    private final int day;
+    private final int month;
+
+
+    public MyDate(int year, int month, int day) throws InvalidDateException {
+        if(isValidDate(year,month,day)){
+            throw new InvalidDateException("INVALID DATE");
+        }
+        this.valid = isValidDate(year, month, day);
+        this.year = year;
+        this.month = month;
+        this.day = day;
     }
 
-    public int getYear(){
-        return year;
+    public boolean getValidity() {
+        return valid;
     }
 
-    public int getMonth(){
-        return month;
-    }
-
-    public int getDay(){
+    public int getDay() {
         return day;
     }
 
-    public static String toString(int year, int month, int day){
-        String data = null;
-        data = String.valueOf(year);
-        data = data + " ";
-        data = String.valueOf(month);
-        data = data + " ";
-        data = String.valueOf(day);
-        return data;
+    public int getMonth() {
+        return month;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    @Override
+    public String toString() {
+        String result = Integer.toString(this.year);
+        result += "/";
+        if (this.month < 10) {
+            result += "0" + Integer.toString(this.month);
+        } else {
+            result += Integer.toString(this.month);
+        }
+        result += "/";
+        if (this.day < 10) {
+            result += "0" + Integer.toString(this.day);
+        } else {
+            result += Integer.toString(this.day);
+        }
+        return result;
+    }
+
+    @Override
+    public int compareTo(MyDate o) {
+        if(this==o){
+            return 0;
+        }
+
+        if(this.year == o.year){
+            if(this.month == o.month){
+                if(this.day == o.day){
+                    return 0;
+                } else {
+                    return this.day - o.day;
+                }
+            } else {
+                return this.month - o.month;
+            }
+        } else {
+            return this.year - o.year;
+        }
     }
 }
+

@@ -7,7 +7,7 @@ public class Student {
     private int credits;
    private final MyDate birthDate;
 
-    public Student(String neptunCode, String lastName, String firstName, int credits, int year, int month, int day) throws Exception {
+    public Student(String neptunCode, String lastName, String firstName, int credits, int year, int month, int day) throws Exception, InvalidDateException {
         if(!DateUtil.isValidDate(year, month, day)){
             throw new Exception("INVALID DATE");
         }
@@ -17,5 +17,15 @@ public class Student {
         this.firstName = firstName;
         this.credits = credits;
 
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "NeptunId='" + neptunCode + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", credits=" + credits +
+                '}';
     }
 }
