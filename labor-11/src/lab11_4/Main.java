@@ -14,7 +14,7 @@ public class Main {
             try{
                 System.out.println("Eval(" + expr + "):" + IExpression.evaluate(expr));
             }
-            catch (ExpressionException e){
+            catch (ExpressionException | StackException e){
                 System.out.println("Wrong expression: " + expr);
                 System.out.println("\t" + e.getMessage());
             }

@@ -2,14 +2,13 @@ package lab11_4;
 
 import java.util.ArrayList;
 
-public class Stack extends StackException{
+public class Stack{
 
 
     private ArrayList<Object> items = new ArrayList<>();
     private final int capacity;
 
     public Stack(int capacity){
-        super("Stack Exception");
         this.capacity = capacity;
     }
 

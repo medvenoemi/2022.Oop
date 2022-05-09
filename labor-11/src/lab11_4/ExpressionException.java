@@ -1,7 +1,7 @@
 package lab11_4;
 
-public class ExpressionException extends Throwable{
-    public ExpressionException(String string){
-        super(string);
+public class ExpressionException extends Exception{
+    public ExpressionException(String message){
+        super(message);
     }
 }
