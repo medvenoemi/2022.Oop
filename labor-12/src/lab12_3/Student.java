@@ -1,79 +1,59 @@
 package lab12_3;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-
 public class Student {
 
     private final int id;
-    private final String firstName;
-    private final String lastName;
 
-    private final HashMap<String,Double> marks = new HashMap<>();
-    private final HashSet<Tantargy> tantargyak = new HashSet<>();
+    private double hungarian;
+    private double romanian;
+    private double math;
+
     private double average;
 
-    public Student(int id, String firstName, String lastName){
+    private String firstName;
+    private String lastName;
+
+    public Student(int id, String firstName, String lastName) {
+        final double hungarian = 0;
+        final double romanian = 0;
+        final double math = 0;
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-    public void assignMark(String markType, Double markValue){
-
+    public void setHungarian(double hungarian) {
+        this.hungarian = hungarian;
     }
 
-    //average
-    private String getMarkDetails() {
-        StringBuilder result = new StringBuilder("");
-
-        //v1
-        for(String key : marks.keySet()){
-            result.append(key).append(" : ").append(marks.get(key));
-        }
-
-        //v2
-        for(Map.Entry<String, Double> entry : marks.entrySet()){
-            result.append(entry.getKey()).append(":").append(entry.getValue());
-        }
-
-        //v3
-        marks.forEach(
-                (key, val)->result.append(key).append(":").append(val)
-        );
-
-        return result.toString();
+    public void setMath(double math) {
+        this.math = math;
     }
 
-    //atlag lekeres
+    public void setRomanian(double romanian) {
+        this.romanian = romanian;
+    }
 
-    //hashMap kiiratasa
-    //Elso valtozat:
-    // for (String i:marks.keyset()){
-    //sout(i+":"+marks.get(i))}
+    public int getId() {
+        return id;
+    }
 
-    //Masodik valtozat:
-    // for(Map.Entry<String, Double> entry : marks.entrySet()){
-    //  System.out.println(entry.getKey() + ":" + entry.getValue());
-    //}
+    public String getFirstName() {
+        return firstName;
+    }
 
-    //Harmadik valtozat:
-    //marks.forEach(
-    //    (key, val) -> sout(key + ":" + val)
-    //  )
+    public String getLastName() {
+        return lastName;
+    }
 
+    public double getAverage() {
+        if (this.math >= 5 && this.hungarian >= 5 && this.romanian >= 5) {
+            average = (this.math + this.romanian + this.hungarian) / 3;
+            if (average >= 6) {
+                return this.average;
+            }
+        }
+        return 0;
 
-
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", marks=" + getMarkDetails() +
-                ", average=" + average +
-                '}';
     }
 }
